@@ -1,0 +1,10 @@
+{
+  "name": "learning-dashboard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Multi-Script Learning Dashboard using Node.js ES6 modules",
+  "main": "run-dashboard.js",
+  "scripts": {
+    "start": "node run-dashboard.js"
+  }
+}
