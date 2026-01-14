@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="background-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <p>Track your favorite cities in style</p>
+        </header>
+
+        <main>
+            <section class="input-panel glass-panel">
+                <h2>Add New City</h2>
+                <div class="form-group">
+                    <input type="text" id="cityInput" placeholder="Enter city name (e.g. London)" autocomplete="off">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="number" id="tempInput" placeholder="Temp" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <select id="conditionInput">
+                            <option value="" disabled selected>Select Condition</option>
+                            <option value="Sunny">Sunny ☀️</option>
+                            <option value="Cloudy">Cloudy ☁️</option>
+                            <option value="Rainy">Rainy 🌧️</option>
+                            <option value="Snowy">Snowy ❄️</option>
+                            <option value="Windy">Windy 💨</option>
+                            <option value="Stormy">Stormy ⛈️</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="addCityBtn" class="btn btn-primary">Add City</button>
+            </section>
+
+            <section class="controls glass-panel">
+                <div class="toggle-group">
+                    <span>Unit:</span>
+                    <button id="unitToggleBtn" class="btn btn-secondary">°C / °F</button>
+                </div>
+                <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
+            </section>
+
+            <section class="weather-list-section">
+                <!-- Alert Area -->
+                <div id="alertArea" class="alert-area"></div>
+                
+                <ul id="cityList" class="city-list">
+                    <!-- Dynamic city items will appear here -->
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Weather Dashboard</p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
