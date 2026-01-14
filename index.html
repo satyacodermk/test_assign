@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Flashcard Study Tool</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Flashcard Study Tool 🚀</h1>
+            <button id="toggle-view-btn" class="secondary-btn">View Progress</button>
+        </header>
+
+        <main id="study-screen" class="screen active">
+            <div class="card-container">
+                <div class="card" id="flashcard">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2 id="card-term">Term</h2>
+                            <p class="instruction">(Click to Flip)</p>
+                        </div>
+                        <div class="card-back">
+                            <p id="card-definition">Definition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="flip-btn" class="primary-btn">Flip</button>
+                <button id="mark-known-btn" class="success-btn">Mark Known</button>
+            </div>
+
+            <div class="stats">
+                <p>Card: <span id="current-card-count">0</span> / <span id="total-card-count">0</span></p>
+            </div>
+        </main>
+
+        <main id="progress-screen" class="screen hidden">
+            <div class="progress-stats">
+                <h2>Study Progress 📊</h2>
+                <div class="stat-box">
+                    <h3>Known Cards</h3>
+                    <p id="known-count" class="stat-number">0</p>
+                </div>
+            </div>
+
+            <div class="completed-section">
+                <h3>Completed Terms</h3>
+                <ul id="completed-list" class="term-list">
+                    <!-- List items will be injected here -->
+                </ul>
+            </div>
+
+            <div class="controls">
+                <button id="reset-btn" class="danger-btn">Reset All Progress</button>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
