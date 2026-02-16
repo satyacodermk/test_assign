@@ -1,6 +1,6 @@
 """
 main.py - Main entry point for the Note Manager application
-Provides a CLI menu-driven interface for managing notes
+Provides a CLI menu-driven interface for managing notes [16-02-2026]
 """
 
 from note_manager import Note, save_notes, load_notes
@@ -212,4 +212,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
