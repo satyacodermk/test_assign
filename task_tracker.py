@@ -1,5 +1,5 @@
 # task_tracker.py
-# Command-Line Task Tracker
+# Command-Line Task Tracker - made change on [16-02-2026]
 
 def display_menu():
     print("\n--- Task Tracker ---")
@@ -11,7 +11,7 @@ def display_menu():
 
 def view_tasks(tasks):
     if not tasks:
-        print("No tasks available.")
+        print("No tasks available. ")
         return
 
     for index, task in enumerate(tasks, start=1):
@@ -68,3 +68,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
