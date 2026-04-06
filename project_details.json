@@ -1,0 +1,32 @@
+{
+  "title": "Note Manager App",
+  "type": "project",
+  "programming_language": "python",
+  "tech_stack_used": "python",
+  "primary_technology": "python",
+  "tech_stack": ["python"],
+  "allowed_extensions": [".py", ".json", ".md", ".txt", ".ini", ".cfg", ".yaml", ".yml", ".toml", ".env", ".log", ".csv", ".xml", ".db", ".sqlite"],
+  "run_commands": ["python main.py"],
+  "entry_files": ["main.py"],
+  "points": 80,
+  "db_files": [],
+  "folder_structure": {
+    "main_folder_name": "note_app",
+    "files": [
+      {"name": "main.py", "file_summary": "The main program entry point with CLI menu", "run": true, "executable": true},
+      {"name": "README.md", "file_summary": "Project description and usage instructions"},
+      {"name": "notes.json", "file_summary": "Stores notes data persistently (auto-generated)"}
+    ],
+    "sub_folders": [
+      {
+        "folder_name": "note_manager",
+        "files": [
+          {"name": "__init__.py", "file_summary": "Initializes the note_manager package and exports Note class and storage functions"},
+          {"name": "note.py", "file_summary": "Defines the Note class with all note operations"},
+          {"name": "storage.py", "file_summary": "Handles file I/O operations for JSON persistence"}
+        ],
+        "sub_folders": []
+      }
+    ]
+  }
+}
