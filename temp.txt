@@ -1,0 +1,353 @@
+
+you are expert at write the code for different technology, and you are expert at coding as per provided guidelines:
+
+I want you to write a single script solution assignment for me:
+
+here is the details:
+
+TECH : javascript
+TITLE : Interactive Quiz & Learning App
+
+
+Project details:
+
+Interactive Quiz & Learning App
+Build a beginner-friendly, console-based quiz game in JavaScript (Node.js). Your app will show multiple-choice questions one at a time, check each answer, give instant feedback, and finish with a score, a percentage, and a motivating message. Questions live in an array of objects, so adding new ones is as easy as adding a new object. 🎉
+
+🚀 Key Concepts Applied
+let and const Data Types Type Conversion Functions Parameters and Return Values if / else if / else switch for loop while loop break and continue Arrays Objects Operators and Expressions Template Literals try...catch Debugging with console.log() JSON.stringify() and JSON.parse()
+
+🧰 Libraries/Frameworks Utilized
+No external packages needed. This project uses the Standard Libraries for JavaScript (Node.js):
+
+readline fs process JSON Math
+
+🔥 What You Will Implement
+Question bank → Create an array of question objects, each with question, options, and correctAnswer. (You already learned in the Working with Arrays and Creating and Accessing Objects chapters.)
+Welcome screen and menu → Print the title, the rules, and a Start/Exit menu, then react to the user's choice. (You already learned in the Conditionals and Decision Making chapter (including switch).)
+Reusable functions → Split the app into small functions such as displayQuestion(), getValidAnswer(), checkAnswer(), and calculatePercentage(). (You already learned in the Defining and Calling Functions and Function Parameters and Returns chapters.)
+Input validation → Keep asking until the user types a valid option number. (You already learned in the Loops and Iteration chapter (while) and the Variables, Data Types, and Type Conversion chapter (turning text into numbers).)
+Quiz loop → Move through every question in order with a for loop. (You already learned in the Loops and Iteration chapter.)
+Score tracking → Keep counters for correct and incorrect answers and calculate a percentage. (You already learned in the Operators and Expressions chapter.)
+Readable output → Format questions, feedback, and results using template literals. (You already learned in the JSON and Template Literals chapter.)
+Performance message → Pick a message such as "Excellent!" or "Keep practicing!" depending on the percentage. (You already learned in the Conditionals and Decision Making chapter.)
+Restart and exit → Let the user replay without relaunching the program. (You already learned in the Loops and Iteration chapter.)
+Error handling and testing → Wrap risky input code in try...catch and verify your logic with console.log() and manual tests. (You already learned in the Debugging Fundamentals and Basic Error Handling and Testing chapters.)
+Optional JSON storage → Convert your questions with JSON.stringify() and read them back with JSON.parse(). (You already learned in the JSON and Template Literals chapter.)
+Running a Node.js script → Create a .js file, run it with node index.js, and print to the terminal. (You already learned in the prerequisite section.)
+📊 Project Overview & User Flow
+Project Overview:
+The Interactive Quiz & Learning App is a terminal game. Users read a question, type the number of the option they think is right, and get instant feedback. At the end, they see a full score summary and can play again or quit. The purpose is to practise the fundamentals of JavaScript by building something fun and complete, with no HTML, CSS, or database involved.
+
+User Flow:
+The user launches the app and sees the welcome message, the rules, and a Start/Exit menu
+The user chooses to start, and the program loads the questions and sets the score to zero
+The program shows the current question with its numbered options
+The user types an option number, and the program rejects invalid input and asks again until it is valid
+The program checks the answer, then displays "Correct" or "Incorrect" (plus the right answer) and updates the score
+After the last question, the program calculates the percentage and displays the results with a performance message
+The user chooses to play again or exit, and the program restarts the quiz or says goodbye
+
+Screen Details
+Because this is a console app, each "screen" is a stage of terminal output.
+
+Screen 1: Welcome Screen
+Purpose: ➝ Greet the user, explain how the quiz works, and let them start or exit.
+Components: ➝ Title banner, welcome message, rules list, menu (1. Start Quiz, 2. Exit), input prompt.
+Functionality: ➝ The banner and message set the tone. The rules explain that answers are typed as option numbers. The menu input is read and handled with switch or if/else. Invalid menu input shows an error and asks again.
+Visual Preview: ➝ Terminal view of the Welcome Screen (screens/welcome-screen)
+node index.js
+==============================
+ INTERACTIVE QUIZ & LEARNING APP
+==============================
+Welcome! Answer each question by typing the option number.
+
+Rules:
+1. You will see one question at a time.
+2. Type the number of your chosen option.
+3. Invalid answers will be asked again.
+
+1. Start Quiz
+2. Exit
+Enter your choice:  
+Screen 2: Quiz Question Screen
+Purpose: ➝ Present one question at a time and collect a valid answer.
+Components: ➝ Progress label ("Question 2 of 5"), question text, numbered options, answer prompt, error message area.
+Functionality: ➝ The progress label comes from the loop index and the array length. Options are printed by looping over the options array. The input is converted to a number and checked against the allowed range, and an error message appears for invalid input.
+Visual Preview: ➝ Terminal view of the Quiz Question Screen (screens/question-screen)
+node index.js
+Question 2 of 5
+Which loop is best when you know how many times to repeat?
+1. for
+2. while
+3. do...while
+4. switch
+
+Invalid input. Please enter a number between 1 and 4.
+Enter your answer (1-4):  
+Screen 3: Answer Feedback Screen
+Purpose: ➝ Tell the user whether they were right and keep the score updated.
+Components: ➝ Feedback message (✅ or ❌), the correct answer (only when wrong), running score line, "Press Enter to continue" prompt.
+Functionality: ➝ checkAnswer() returns true or false. If it returns true, the correct counter goes up, otherwise the correct answer is displayed. Waiting for Enter gives the learner time to read.
+Visual Preview (correct answer): ➝ Terminal view when the answer is right (screens/feedback-correct)
+node index.js
+✅ Correct! Well done!
+Current score: 3 / 3
+
+Press Enter to continue...
+Visual Preview (incorrect answer): ➝ Terminal view when the answer is wrong (screens/feedback-incorrect)
+node index.js
+❌ Incorrect.
+The correct answer was: 3. Paris
+Current score: 2 / 3
+
+Press Enter to continue...
+Screen 4: Final Results Screen
+Purpose: ➝ Summarise performance and let the user replay or quit.
+Components: ➝ Results header, total/correct/incorrect counts, score and percentage, performance message, restart/exit prompt.
+Functionality: ➝ Values come from the score variables, the percentage is calculated with arithmetic, and an if / else if / else chain chooses the message. The final prompt feeds the restart loop.
+Visual Preview: ➝ Terminal view of the Final Results Screen (screens/results-screen)
+node index.js
+==============================
+ 🏆 QUIZ RESULTS 🏆
+==============================
+Total Questions:   5
+Correct Answers:   4
+Incorrect Answers: 1
+Score:             4 / 5
+Percentage:        80%
+
+Great job! You really know your stuff!
+
+Play again? (y/n):  
+Expected Output
+Output Description: ➝ All output is printed as console text: a welcome banner, one formatted question at a time, feedback lines, a running score, a final results summary, and a performance message. No files are generated.
+Sample Output Format:
+==============================
+ INTERACTIVE QUIZ & LEARNING APP
+==============================
+Welcome! Answer each question by typing the option number.
+
+1. Start Quiz
+2. Exit
+Enter your choice: 1
+
+Question 1 of 3
+What keyword declares a constant in JavaScript?
+1. var
+2. let
+3. const
+4. static
+Enter your answer (1-4): 3
+
+✅ Correct!
+Current score: 1 / 1
+
+Question 2 of 3
+Which loop is best when you know how many times to repeat?
+1. for
+2. while
+3. do...while
+4. switch
+Enter your answer (1-4): 2
+
+❌ Incorrect.
+The correct answer was: 1. for
+Current score: 1 / 2
+
+==============================
+ QUIZ RESULTS
+==============================
+Total Questions: 3
+Correct Answers: 2
+Incorrect Answers: 1
+Score: 2 / 3
+Percentage: 67%
+Good effort! A little more practice and you'll master it.
+
+Play again? (y/n): n
+Thanks for playing. Goodbye!
+Step-wise Output:
+➝ Stage 1, Welcome: banner, rules, and menu.
+➝ Stage 2, Question: progress label, question text, numbered options, prompt.
+➝ Stage 3, Validation (only when needed): a one-line error message and the prompt again.
+➝ Stage 4, Feedback: correct or incorrect message, the right answer if wrong, and the running score.
+➝ Stage 5, Results: totals, percentage, and performance message.
+➝ Stage 6, Restart/Exit: play-again prompt, then either a fresh quiz or a goodbye message.
+AI Image Prompt for Output Screens: ➝ "A full console session shown in a dark desktop terminal window. Output layout: vertical scrolling text, with the question block at the top, the feedback in the middle, and a boxed results summary at the bottom. UI elements: a window title bar, colored status lines (green for correct, red for incorrect, gold for results header), and a blinking cursor at the prompt. Placement: each screen separated by blank lines and divider lines made of '=' characters. Style: clean, professional, high-contrast developer theme with a near-black background and a monospace font. Device: console interface on a desktop."
+📁 Folder Structure & File Naming
+Folder Hierarchy
+/interactive-quiz-app
+ ┣ /input
+ ┃  ┗ questions.json        → Optional JSON copy of the question bank
+ ┣ /output                  → (Optional) saved results, if you extend the project
+ ┣ /screens
+ ┃  ┣ welcome-screen.png
+ ┃  ┣ question-screen.png
+ ┃  ┣ feedback-screen.png
+ ┃  ┗ results-screen.png
+ ┣ /modules
+ ┃  ┣ questionData.js       → Question Data Module
+ ┃  ┣ menu.js               → Welcome and Menu Module
+ ┃  ┣ inputValidation.js    → Input Validation Module
+ ┃  ┣ quiz.js               → Quiz Execution Module
+ ┃  ┣ score.js              → Score Management Module
+ ┃  ┣ results.js            → Results Module
+ ┃  ┗ restart.js            → Restart and Exit Module
+ ┣ index.js                 → Entry point that ties everything together
+ ┗ README.md                → How to run and extend the app
+File Naming
+Use camelCase for JavaScript files and functions (inputValidation.js, getValidAnswer()).
+Use kebab-case for the project folder and image files (interactive-quiz-app, welcome-screen.png).
+Name each file after its single responsibility so it's obvious where to look when debugging.
+Key Code Hints & Implementation Tips
+Create one reusable input helper: Console input is the trickiest part for beginners. Hide it inside one function so every other module just calls askQuestion("..."). This sketch reads synchronously (so you don't need async code yet) and relies on try...catch for errors. If your course covers readline's rl.question, that works too.
+💻 Click to see Code
+Design the question object: A clear object shape makes every later step easier. Decide whether correctAnswer stores an option index or the option text, and stay consistent everywhere.
+💻 Click to see Code
+Validate input with a while loop: Raw input is always a string. Convert it, check that it is a whole number inside the valid range, and keep looping until it passes. Think about what Number("abc") and Number("") give you.
+💻 Click to see Code
+Calculate the score safely: A percentage needs division, and dividing by zero is a classic edge-case bug. Plan how your function behaves with an empty question list, and use console.log() to verify your numbers.
+💻 Click to see Code
+Control restarts with an outer loop: Wrap the whole quiz in a loop so replaying doesn't require relaunching. The key is to reset your score variables at the start of each round, otherwise scores carry over.
+💻 Click to see Code
+Basic Test Cases
+#	Test Input	Expected Output	Description
+1	Menu: 1	Quiz begins at "Question 1 of N"	Valid start choice
+2	Menu: 2	Goodbye message, program ends	Valid exit choice
+3	Menu: x	Error message, menu shown again	Invalid menu input
+4	Answer: correct option number	"✅ Correct!" and score increases by 1	Standard correct answer
+5	Answer: wrong but valid option	"❌ Incorrect." and the correct answer is shown	Standard incorrect answer
+6	Answer: 0	Error message, same question asked again	Below allowed range
+7	Answer: 5 on a 4-option question	Error message, same question asked again	Above allowed range
+8	Answer: empty (just Enter)	Error message, same question asked again	Empty input edge case
+9	Answer: 2.5	Error message, same question asked again	Decimal input edge case
+10	All answers correct (5 of 5)	100%, "Excellent" message	Best-case scoring
+11	All answers wrong (0 of 5)	0%, encouragement message, 5 incorrect	Worst-case scoring
+12	3 correct of 5	Score 3 / 5, 60%, mid-level message	Percentage calculation check
+13	Restart: y	Score reset to 0, quiz starts again	Restart logic
+14	Restart: n	Goodbye message, program ends	Exit after results
+15	Empty questions array	Friendly "No questions available"
+Think Like a Pro Coder — Developer’s Challenge
+You've built a working quiz. Now stress-test it the way a professional would.
+
+🔍 Did you cover all edge cases?
+Think about inputs like spaces (" 3 "), negative numbers, very long text, uppercase Y or N on the restart prompt, and a question with only two options. Does your program ever show NaN or crash?
+🚀 Is your solution optimized for efficiency and scalability?
+What happens with 500 questions? Could you shuffle the question order, pick a random subset, or load questions from questions.json using JSON.parse()? Are your functions small and reusable enough that a teammate could add a "timed mode" without rewriting everything?
+Bonus ideas: track a high score across rounds, add difficulty levels, or save results to /output. 💪
+
+
+considering this: 
+1] built required files and folder structure:
+2] and also build the project details json like below :
+{
+  "title": "Expense Tracker",
+  "type": "project",
+  "programming_language": "python",
+  "file_path":"/python_projects/projects/python_beginner_proj_2_expense_tracker",
+  "tech_stack_used": "python",
+  "primary_technology": "python",
+  "tech_stack": ["python"],
+  "allowed_extensions": [
+    ".py",
+    ".txt",
+    ".md",
+    ".json",
+    ".ini",
+    ".cfg",
+    ".conf",
+    ".yaml",
+    ".yml",
+    ".toml",
+    ".env",
+    ".log",
+    ".csv",
+    ".xml",
+    ".db",
+    ".sqlite"
+  ],
+  "run_commands": ["python main.py"],
+  "entry_files": ["main.py"],
+  "points": 90,
+  "db_files": [],
+  "folder_structure": {
+    "main_folder_name": "expense_tracker_project",
+    "files": [
+      {
+        "name": "main.py",
+        "file_summary": "The main program entry point",
+        "run": true,
+        "executable": true
+      },
+      {
+        "name": "README.md",
+        "file_summary": "Project description and instructions"
+      }
+    ],
+    "sub_folders": [
+      {
+        "folder_name": "data",
+        "files": [
+          {
+            "name": "expenses.txt",
+            "file_summary": "Stores raw expense data"
+          }
+        ],
+        "sub_folders": []
+      },
+      {
+        "folder_name": "modules",
+        "files": [
+          {
+            "name": "__init__.py",
+            "file_summary": ""
+          },
+          {
+            "name": "expense.py",
+            "file_summary": "Defines the Expense class"
+          },
+          {
+            "name": "file_operations.py",
+            "file_summary": "Handles reading/writing expense data"
+          },
+          {
+            "name": "category_summarizer.py",
+            "file_summary": "Contains logic for summarizing expenses"
+          }
+        ],
+        "sub_folders": []
+      }
+    ]
+  }
+}
+check and then build necessary script and also tell which is the main script 
+
+
+
+## Special Cases:
+1] if some projects uses some kind of DB like mysql, mongodb, postgres:
+  - then take the db connection and configuration from the files like : .env, config.ini, .. kind of file 
+  and it have like this:
+# config.ini:
+[postgresql]
+# PostgreSQL connection details
+host=127.0.0.1
+port=5434
+database=db_xrdered3443erf
+user=root
+password=XXXxXX
+
+2] if the project just have pure DB related stuff then just build their solution: just have properly 2 times revied query files
+
+
+
+- NOTE:
+	- based on project this json can vary some time it can have single file some time it can have multiple file 
+	- some time it can have more different techs so check it analyze it and then decide properly 
+  - in the folder structure json don't include project_details.json in it 
+  - Check the Code make sure if code take some input or output from user then don't hardcode it, if the assignment or code fully works on hardcoded details then only have it, 
+  - make sure use relative file path to run the project/ assignment without any issue 
+  - if some project have some db or port create explicitly have config.ini or .env files don't have harcode credientials for it
+
+ 
